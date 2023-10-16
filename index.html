@@ -92,11 +92,12 @@
 
       function connected(api) {
         externalApi = api;
+
+        console.log('Init API');
+        initUnity();
       }
 
       iframeApi(callbacks).then(connected, error);
-      console.log('Init API');
-      initUnity();
       
     }(window.iframeApi));
     
