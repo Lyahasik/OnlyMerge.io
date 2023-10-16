@@ -114,7 +114,9 @@
       });
 
       iframeApi(callbacks).then(connected, error);
+      console.log('Init API');
       initUnity();
+      
     }(window.iframeApi));
     
     var myGameInstance = null;
