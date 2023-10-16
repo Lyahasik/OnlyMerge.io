@@ -95,24 +95,6 @@
         externalApi = api;
       }
 
-      // пример вызова действия "Регистрация"
-      $('#register').on('click', function(e) {
-        e.preventDefault();
-        externalApi.registerUser();
-      });
-
-      // пример вызова действия "Вход"
-      $('#auth').on('click', function(e) {
-        e.preventDefault();
-        externalApi.authUser();
-      });
-
-      // пример получения профиля
-      $('#profile').on('click', function(e) {
-        e.preventDefault();
-        externalApi.userProfile();
-      });
-
       iframeApi(callbacks).then(connected, error);
       console.log('Init API');
       initUnity();
