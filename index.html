@@ -63,13 +63,13 @@
 
   <script>
 
+    var externalApi = null;
+    
     (function apiHandshake(iframeApi) {
       if (typeof iframeApi === 'undefined') {
         console.log('Cannot find iframeApi function, are we inside an iframe?');
         return;
       }
-
-      var externalApi = null;
 
       var callbacks = {
         appid: 31445,
