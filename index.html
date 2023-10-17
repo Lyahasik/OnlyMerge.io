@@ -75,14 +75,7 @@
       var callbacks = {
         appid: 31445,
 
-        adsCallback: function(context) {
-          type: {
-            adCompleted: () => {
-              console.log('Get award');
-              myGameInstance.SendMessage('PublishHandler', 'GetAward');
-            }
-          }
-        }
+        adsCallback: function(context) { console.log('Callback check'); }
       };
 
       function error(err) {
