@@ -63,6 +63,8 @@
 
   <script>
 
+    var myGameInstance = null;
+
     var externalApi = null;
     var adsContext = null;
     
@@ -76,7 +78,13 @@
         appid: 31445,
 
         adsCallback: function(context) {
-          console.log('123', context); 
+
+          if (context.type === 'adCompleted')
+          {
+
+            console.log('123', context);
+            myGameInstance.SendMessage('PublishHandler', 'GetAward');
+          }
         }
       };
 
@@ -94,8 +102,6 @@
       iframeApi(callbacks).then(connected, error);
       
     }(window.iframeApi));
-    
-    var myGameInstance = null;
     
     function initUnity() {
       var container = document.querySelector("#unity-container");
