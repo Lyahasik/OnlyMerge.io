@@ -75,7 +75,9 @@
       var callbacks = {
         appid: 31445,
 
-        adsCallback: function(context) { console.log('Callback check'); }
+        adsCallback: function(context) {
+          console.log('123', context); 
+        }
       };
 
       function error(err) {
