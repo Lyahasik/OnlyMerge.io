@@ -66,7 +66,6 @@
     var myGameInstance = null;
 
     var externalApi = null;
-    var adsContext = null;
     
     (function apiHandshake(iframeApi) {
       if (typeof iframeApi === 'undefined') {
@@ -78,12 +77,16 @@
         appid: 31445,
 
         adsCallback: function(context) {
+          
+          switch(context.type) {
+            case 'adCompleted':
+              myGameInstance.SendMessage('PublishHandler', 'GetAward');
+              [break]
 
-          if (context.type === 'adCompleted')
-          {
-
-            console.log('123', context);
-            myGameInstance.SendMessage('PublishHandler', 'GetAward');
+            case 'adDismissed':
+            case 'adError':
+              myGameInstance.SendMessage('PublishHandler', 'CloseAds');
+              [break]
           }
         }
       };
