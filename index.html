@@ -64,6 +64,7 @@
   <script>
 
     var externalApi = null;
+    var adsContext = null;
     
     (function apiHandshake(iframeApi) {
       if (typeof iframeApi === 'undefined') {
@@ -74,16 +75,13 @@
       var callbacks = {
         appid: 31445,
 
-        getLoginStatusCallback: function(status) {},
-        userInfoCallback: function(info) {},
-        userProfileCallback: function(profile) {},
-        registerUserCallback: function(info) {},
-        paymentFrameUrlCallback: function(url) {},
-        getAuthTokenCallback: function(token) {},
-        paymentReceivedCallback: function(data) {},
-        paymentWindowClosedCallback: function() {},
-        userConfirmCallback: function() {},
-        adsCallback: function(context) {},
+        adsCallback: function(context) {
+          type: {
+            adCompleted: () => {
+              console.log('Get award');
+              myGameInstance.SendMessage('PublishHandler', 'GetAward');
+          }
+        },
       };
 
       function error(err) {
