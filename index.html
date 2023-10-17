@@ -81,12 +81,12 @@
           switch(context.type) {
             case 'adCompleted':
               myGameInstance.SendMessage('PublishHandler', 'GetAward');
-              [break]
+              break;
 
             case 'adDismissed':
             case 'adError':
               myGameInstance.SendMessage('PublishHandler', 'CloseAds');
-              [break]
+              break;
           }
         }
       };
